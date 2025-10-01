@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class Solution {
+
+    public static boolean isPalindrome(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int reversedHalf = 0;
+        while (x > reversedHalf) {
+            reversedHalf = reversedHalf * 10 + x % 10;
+            x /= 10;
+        }
+
+        return x == reversedHalf || x == reversedHalf / 10;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите целое число для проверки: ");
+        int number = scanner.nextInt();
+
+
+            System.out.println(isPalindrome(number));
+
+
+
+        scanner.close();
+    }
+}
